@@ -1,0 +1,32 @@
+﻿@model IEnumerable<PhamThiThuyQuynh_241230831.Models.HangHoa>
+@{
+    ViewData["Title"] = "Phạm Thị Thúy Quỳnh";
+}
+<partial name="PhamThiThuyQuynh_MainContent" model="Model"/>
+
+div id="khu-vuc-san-pham">
+    <partial name="PhamThiThuyQuynh_MainContent" model="Model"/>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $(".ajax-loaihang").click(function (e) {
+                e.preventDefault(); 
+                var maLoaiClick = $(this).data("id");
+                
+                // Gửi AJAX
+                $.ajax({
+                    url: '/Home/HienThiTheoLoai',
+                    type: 'GET',
+                    data: { maloai: maLoaiClick },
+                    success: function (kết_quả_html) {
+                        $("#khu-vuc-san-pham").html(kết_quả_html);
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>@ViewData["Title"] - Home Shoppe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Link tới file CSS trong wwwroot -->
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+    <!-- Begin Wrap: Chứa Header và Main Content theo đúng template gốc -->
+    <div class="wrap">
+
+        <!-- 1. NẠP HEADER -->
+        <partial name="PhamThiThuyQuynh_Header" />
+
+        <!-- 2. NẠP NỘI DUNG CHÍNH (Chỉ có 1 chữ @RenderBody duy nhất ở đây) -->
+        <div class="main-content">
+            @RenderBody()
+        </div>
+
+    </div>
+    <!-- End Wrap -->
+    <!-- 3. NẠP FOOTER (Footer nằm ngoài thẻ wrap) -->
+    <partial name="PhamThiThuyQuynh_Footer" />
+
+    <!-- 4. KHAI BÁO SECTION SCRIPTS (Bắt buộc phải viết đúng chữ Scripts có 's' để làm Câu 4 AJAX) -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
